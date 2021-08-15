@@ -8,7 +8,6 @@ include("verifica_login.php");
 <head>
 
   <meta charset="utf-8">
-  <link rel="icon" href="img/favico.png"/><a style="visibility: hidden;">;</a>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -22,8 +21,6 @@ include("verifica_login.php");
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
-
 
 </head>
 
@@ -47,7 +44,7 @@ include("verifica_login.php");
       <li class="nav-item active">
         <a class="nav-link" href="painel.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Painel Principal</span></a>
+          <span>Painel principal</span></a>
       </li>
 
       <!-- Divider -->
@@ -77,7 +74,7 @@ include("verifica_login.php");
       <li class="nav-item">
         <a class="nav-link" href="unidade.php">
           <i class="fas fa-fw fa-table"></i>
-          <span>Unidades</span></a>
+          <span>Unidade</span></a>
       </li>
 
       <!-- Produtos -->
@@ -125,7 +122,7 @@ include("verifica_login.php");
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Customização:</h6>
-            <a class="collapse-item" href="editar.php">Editar</a>
+            <a class="collapse-item" href="#">Editar</a>
           </div>
         </div>
       </li>
@@ -174,7 +171,7 @@ include("verifica_login.php");
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Sair
                 </a>
               </div>
@@ -186,8 +183,8 @@ include("verifica_login.php");
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="justify-content-center container-fluid painelCont">
-          <img class="imgFundo" src="img/fundo.svg">          
+        <div class="container-fluid">
+          
         </div>
         <!-- /.container-fluid -->
 

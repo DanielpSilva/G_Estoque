@@ -1,5 +1,5 @@
 <html>
-<meta http-equiv="refresh" content="0; url=unidade.php">
+<meta http-equiv="refresh" content="0; url=unidades.php">
 </html>
 
 <?php

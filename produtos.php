@@ -11,14 +11,10 @@ include("verifica_login.php");
   $consulta = "SELECT produto_id, produto_status, produto_codigo, produto_nome, unidade_nome FROM `produtos` LEFT JOIN unidades ON (unidades.unidade_id = produtos.produto_unidade_id)  WHERE unidade_empresa_id ='$empresa'";
   $query = mysqli_query($conn, $consulta);
 
-  $style = "SELECT * FROM style WHERE empresa_id  ='$empresa'";
-$queryStyle = mysqli_query($conn, $style);
-
 ?>
 <head>
 
   <meta charset="utf-8">
-  <link rel="icon" href="img/favico.png"/><a style="visibility: hidden;">;</a>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -42,6 +38,7 @@ $queryStyle = mysqli_query($conn, $style);
 
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="painel.php">
         <div class="sidebar-brand-text mx-3">G. Estoque</div>
@@ -54,7 +51,7 @@ $queryStyle = mysqli_query($conn, $style);
       <li class="nav-item active">
         <a class="nav-link" href="painel.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Painel Principal</span></a>
+          <span>Painel principal</span></a>
       </li>
 
       <!-- Divider -->
@@ -84,7 +81,7 @@ $queryStyle = mysqli_query($conn, $style);
       <li class="nav-item">
         <a class="nav-link" href="unidade.php">
           <i class="fas fa-fw fa-table"></i>
-          <span>Unidades</span></a>
+          <span>Unidade</span></a>
       </li>
 
       <!-- Produtos -->
@@ -132,7 +129,7 @@ $queryStyle = mysqli_query($conn, $style);
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Customização:</h6>
-            <a class="collapse-item" href="editar.php">Editar</a>
+            <a class="collapse-item" href="#">Editar</a>
           </div>
         </div>
       </li>
@@ -200,24 +197,22 @@ $queryStyle = mysqli_query($conn, $style);
             <table class="table table-striped">
               <thead class="thead-dark">
                 <tr>
-                  
+                  <th>ID</th>
                   <th>Código do produto</th>
                   <th>Nome do produto</th>
-                  <th>Unidades</th>
+                  <th>Unidade</th>
                   <th>Status</th>
                 </tr>
-				</thead>
 
                 <?php while($dado = $query->fetch_array()){ ?>
                 <tr>
-                  
+                  <td><?php echo $dado['produto_id'] ?></td>
                   <td><?php echo $dado['produto_codigo']?></td>
                   <td><?php echo $dado['produto_nome']?></td>
                   <td><?php echo $dado['unidade_nome']?></td>
                   <td><?php echo $dado['produto_status']?></td>
                 </tr>
                 <?php } ?>
-			  
             </table>
 
           <!-- Modal -->
@@ -241,7 +236,7 @@ $queryStyle = mysqli_query($conn, $style);
 
                     <div class="form-group row">
                       <label for="nome" class="col-sm-4">Nome do produto: </label>
-                      <input name="nome" type="text" class="form-group inputForm col-sm-18" id="nome">
+                      <input name="nome" type="text" class="form-group inputForm col-sm-18 id="nome">
                     </div>
 
                     <div class="form-group row">

@@ -12,14 +12,10 @@ include("verifica_login.php");
 LEFT JOIN depositos ON (depositos.deposito_id = entradas.entrada_deposito_id) LEFT JOIN produtos ON (produtos.produto_id = entradas.entrada_produto_id) WHERE entrada_empresa_id = '$empresa'";
   $query = mysqli_query($conn, $consulta);
 
-  $style = "SELECT * FROM style WHERE empresa_id  ='$empresa'";
-$queryStyle = mysqli_query($conn, $style);
-
 ?>
 <head>
 
   <meta charset="utf-8">
-  <link rel="icon" href="img/favico.png"/><a style="visibility: hidden;">;</a>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -43,6 +39,7 @@ $queryStyle = mysqli_query($conn, $style);
 
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="painel.php">
         <div class="sidebar-brand-text mx-3">G. Estoque</div>
@@ -55,7 +52,7 @@ $queryStyle = mysqli_query($conn, $style);
       <li class="nav-item active">
         <a class="nav-link" href="painel.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Painel Principal</span></a>
+          <span>Painel principal</span></a>
       </li>
 
       <!-- Divider -->
@@ -85,7 +82,7 @@ $queryStyle = mysqli_query($conn, $style);
       <li class="nav-item">
         <a class="nav-link" href="unidade.php">
           <i class="fas fa-fw fa-table"></i>
-          <span>Unidades</span></a>
+          <span>Unidade</span></a>
       </li>
 
       <!-- Produtos -->
@@ -133,7 +130,7 @@ $queryStyle = mysqli_query($conn, $style);
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Customização:</h6>
-            <a class="collapse-item" href="editar.php">Editar</a>
+            <a class="collapse-item" href="#">Editar</a>
           </div>
         </div>
       </li>
@@ -229,25 +226,6 @@ $queryStyle = mysqli_query($conn, $style);
 
             </table>
          </div>
-         <script type="text/javascript">
-          function id(valor_campo)
-          {
-            return document.getElementById(valor_campo);
-          }
-          function getValor(valor_campo)
-          {
-            var valor = document.getElementById(valor_campo).value.replace( ',', '.');
-            /*document.write("Valor: " + valor);*/
-            return parseFloat( valor );
-          }
-
-          function soma()
-          {
-            var total = getValor('quantidade') * getValor('valor');
-            id('valortotal').value = total;
-            total('valortotal').value = total;
-          }
-          </script>
           <!-- Modal -->
       <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -266,9 +244,9 @@ $queryStyle = mysqli_query($conn, $style);
                  <select name="fornecedor" class="col-sm-8">
                     <option>Selecione</option>
                     <?php
-                      $sql = "SELECT `fornecedor_id`, `fornecedor_nome` FROM `fornecedores` WHERE fornecedor_empresa_id = '$empresa' ";
-                      $resultado = mysqli_query($conn, $sql);
-                      while($dados = mysqli_fetch_assoc($resultado)){
+                        $sql = "SELECT `fornecedor_id`, `fornecedor_nome` FROM `fornecedores` WHERE fornecedor_empresa_id = '$empresa' ";
+                        $resultado = mysqli_query($conn, $sql);
+                        while($dados = mysqli_fetch_assoc($resultado)){
                         $unidade = $dados['fornecedor_nome'];
                         $id = $dados['fornecedor_id'];
                         echo "<option value='$id'>$unidade</option>";
@@ -285,8 +263,8 @@ $queryStyle = mysqli_query($conn, $style);
                  <select name="deposito" class="col-sm-8">
                     <option>Selecione</option>
                       <?php
-  
-                        $sql = "SELECT `deposito_id`, `deposito_nome` FROM `depositos` WHERE deposito_empresa_id = '$empresa'";
+                    
+                       $sql = "SELECT `deposito_id`, `deposito_nome` FROM `depositos` WHERE deposito_empresa_id = '$empresa'";
                         $resultado = mysqli_query($conn, $sql);
                         while($dados = mysqli_fetch_assoc($resultado)){
                           $deposito = $dados['deposito_nome'];
@@ -301,16 +279,24 @@ $queryStyle = mysqli_query($conn, $style);
 
                 <div class="form-group row">
                   <label for="data" class="col-sm-4">Data</label>
-                  <input name="data" type="date" class="form-group inputForm col-sm-8" id="data">
+                  <input name="data" type="text" class="form-group inputForm col-sm-8" id="data">
                 </div>
                 
                 <br/>
+
                 <div class="form-group row">
+                  <label for="quantidade" class="col-sm-4">Quantidade</label>
+                  <input name="quantidade" type="text" class="form-group inputForm col-sm-8" id="quantidade">
+                </div>
+
+                <br/>
+
+                 <div class="form-group row">
                  <label for="produto" class="col-sm-4">Produto:</label>
-                  <select name="produto" class="col-sm-8">
+                 <select name="produto" class="col-sm-8">
                     <option>Selecione</option>
                       <?php
-                        $sql = "SELECT `produto_id`, `produto_nome`FROM `produtos` WHERE produto_empresa_id = '$empresa' AND produto_status = 'A'";
+                        $sql = "SELECT `produto_id`, `produto_nome`FROM `produtos` WHERE produto_empresa_id = '$empresa'";
                         $resultado = mysqli_query($conn, $sql);
                         while($dados = mysqli_fetch_assoc($resultado)){
                           $unidade = $dados['produto_nome'];
@@ -319,35 +305,28 @@ $queryStyle = mysqli_query($conn, $style);
                         } 
                         
                       ?>
-                    </select>
-                  </div>
-                 
-                 <br/>
-
-                <div class="form-group row">
-                  <label for="quantidade" class="col-sm-4">Quantidade</label>
-                  <input name="quantidade" type="text" class="form-group inputForm col-sm-8" id="quantidade">
+                  </select>
                 </div>
                 
                 <br/>
 
                 <div class="form-group row">
                   <label for="valor" class="col-sm-4">Valor unitário</label>
-                  <input name="valor" type="text" class="form-group inputForm col-sm-8" id="valor" onblur="soma()">
+                  <input name="valor" type="text" class="form-group inputForm col-sm-8" id="valor">
                 </div>
                 
                 <br/>
 
                 <div class="form-group row">
                   <label for="valortotal" class="col-sm-4">Valor total</label>
-                  <input name="valortotal" type="text" class="form-group inputForm col-sm-8" id="valortotal" readonly onblur="somar()">
+                  <input name="valortotal" type="text" class="form-group inputForm col-sm-8" id="valortotal">
                 </div>
                 
                 <br/>
 
                 <div class="form-group row">
                   <label for="total" class="col-sm-4">Total da entrada</label>
-                  <input name="total" type="hidden" class="form-group inputForm col-sm-8" id="total">
+                  <input name="total" type="text" class="form-group inputForm col-sm-8" id="total">
                 </div>
                 
                 <br/>

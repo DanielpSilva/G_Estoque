@@ -38,7 +38,7 @@ include('conexao.php');
 	 '$produto',
 	 '$valorU',
 	 '$valorT',
-	 '$valorT')";
+	 '$total')";
 	
 	$resultado_entrada = mysqli_query($conn, $result_entrada);
 	
