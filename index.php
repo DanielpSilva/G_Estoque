@@ -2,31 +2,91 @@
 <html lang="pt-br">
 
 <head>
+
 	<meta charset="utf-8">
-	<title>G. Estoque</title>
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="icon" href="img/favico.png"/><a style="visibility: hidden;">;</a>
-	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Login - Gerenciador de Estoque</title>
+
+	<!-- Custom fonts for this template-->
+	<link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+	<!-- Custom styles for this template-->
+	<link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
 
-<body style="background-image: linear-gradient(to left, #009688, #3F51B5);">
-	
-	<form method="post" action="login.php" id="formlogin" name="formlogin" >
-	<div class="login-box">
-		<h1>Login</h1>
-		<div class="textbox">
-			<i class="fas fa-user"></i>
-			<input type="text" placeholder="Usuário" name = "usuario" id = "usuario">
-		</div>
-		<div class="textbox">
-			<i class="fas fa-lock"></i>
-			<input type="password" placeholder="Senha" name="senha" id="senha">
-		</div>
-		<input type="submit" class="btn" value="LOGAR">
+<body class="bg-gradient-primary" <section>
 
-		<p>Ainda não possui uma conta? <a href="empresa.php">Cadastre-se aqui</a></p>
+	<div class="container">
+
+		<!-- Outer Row -->
+		<div class="row justify-content-center">
+
+			<div class="col-xl-10 col-lg-12 col-md-9" style="height: 80%;">
+
+				<div class="card o-hidden border-0 shadow-lg mt-5">
+					<div class="card-body p-0">
+						<!-- Nested Row within Card Body -->
+						<div class="row">
+							<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+							<div class="col-lg-6">
+								<div class="p-5">
+									<div class="text-center">
+										<h1 class="h4 text-gray-900 mb-4">Bem vindo!</h1>
+									</div>
+									<form class="user" method="post" action="login.php" id="formlogin" name="formlogin">
+										<div class="form-group">
+											<input type="text" placeholder="Usuário" name="usuario" id="usuario" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+										</div>
+										<div class="form-group">
+											<input type="password" placeholder="Senha" name="senha" id="senha" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+										</div>
+										<div class="form-group">
+											<div class="custom-control custom-checkbox small">
+												<input type="checkbox" class="custom-control-input" id="customCheck">
+												<label class="custom-control-label" for="customCheck">Remember Me</label>
+											</div>
+										</div>
+										<input type="submit" class="btn" value="Login" class="btn btn-primary btn-user btn-block"></input>
+										<hr>
+										<p>Ainda não possui uma conta? <a href="empresa.php">Cadastre-se aqui</a></p>
+										<hr>
+									</form>
+									<div class="text-center">
+										<a class="small" href="forgot-password.html">Forgot Password?</a>
+									</div>
+									<div class="text-center">
+										<a class="small" href="register.html">Create an Account!</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
 	</div>
-	</form>
+
+	</section>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="assets/js/sb-admin-2.min.js"></script>
+
 </body>
 
 </html>

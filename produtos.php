@@ -6,12 +6,13 @@ session_start();
 include('conexao.php');
 include("verifica_login.php");
 
-  $empresa = $_SESSION['idempresa'];
+$empresa = $_SESSION['idempresa'];
 
-  $consulta = "SELECT produto_id, produto_status, produto_codigo, produto_nome, unidade_nome FROM `produtos` LEFT JOIN unidades ON (unidades.unidade_id = produtos.produto_unidade_id)  WHERE unidade_empresa_id ='$empresa'";
-  $query = mysqli_query($conn, $consulta);
+$consulta = "SELECT produto_id, produto_status, produto_codigo, produto_nome, unidade_nome FROM `produtos` LEFT JOIN unidades ON (unidades.unidade_id = produtos.produto_unidade_id)  WHERE unidade_empresa_id ='$empresa'";
+$query = mysqli_query($conn, $consulta);
 
 ?>
+
 <head>
 
   <meta charset="utf-8">
@@ -23,11 +24,11 @@ include("verifica_login.php");
   <title>G. Estoque</title>
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -114,12 +115,12 @@ include("verifica_login.php");
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
-        
+
       <!-- Heading -->
       <div class="sidebar-heading">
         Interface
       </div>
-        
+
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -158,7 +159,7 @@ include("verifica_login.php");
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-            
+
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
@@ -167,7 +168,7 @@ include("verifica_login.php");
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['usuario'];?></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['usuario']; ?></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -191,29 +192,30 @@ include("verifica_login.php");
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-          
-          <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal">Adcionar</button>
-            <br/><hr><br/>
-            <table class="table table-striped">
-              <thead class="thead-dark">
-                <tr>
-                  <th>ID</th>
-                  <th>Código do produto</th>
-                  <th>Nome do produto</th>
-                  <th>Unidade</th>
-                  <th>Status</th>
-                </tr>
 
-                <?php while($dado = $query->fetch_array()){ ?>
+          <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal">Adcionar</button>
+          <br />
+          <hr><br />
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>ID</th>
+                <th>Código do produto</th>
+                <th>Nome do produto</th>
+                <th>Unidade</th>
+                <th>Status</th>
+              </tr>
+
+              <?php while ($dado = $query->fetch_array()) { ?>
                 <tr>
                   <td><?php echo $dado['produto_id'] ?></td>
-                  <td><?php echo $dado['produto_codigo']?></td>
-                  <td><?php echo $dado['produto_nome']?></td>
-                  <td><?php echo $dado['unidade_nome']?></td>
-                  <td><?php echo $dado['produto_status']?></td>
+                  <td><?php echo $dado['produto_codigo'] ?></td>
+                  <td><?php echo $dado['produto_nome'] ?></td>
+                  <td><?php echo $dado['unidade_nome'] ?></td>
+                  <td><?php echo $dado['produto_status'] ?></td>
                 </tr>
-                <?php } ?>
-            </table>
+              <?php } ?>
+          </table>
 
           <!-- Modal -->
           <div id="myModal" class="modal fade" role="dialog">
@@ -222,7 +224,7 @@ include("verifica_login.php");
               <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header">
-                  
+
                   <h4 class="modal-title">Novo produto</h4>
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
@@ -236,27 +238,27 @@ include("verifica_login.php");
 
                     <div class="form-group row">
                       <label for="nome" class="col-sm-4">Nome do produto: </label>
-                      <input name="nome" type="text" class="form-group inputForm col-sm-18 id="nome">
+                      <input name="nome" type="text" class="form-group inputForm col-sm-18 id=" nome">
                     </div>
 
                     <div class="form-group row">
                       <label for="nome" class="col-sm-4">Unidade: </label>
                       <select name="unidade" class="col-sm-8">
                         <?php
-                          $sql = "SELECT `unidade_id`, `unidade_nome` FROM `unidades` WHERE unidade_empresa_id = '$empresa'";
-                          $resultado = mysqli_query($conn, $sql);
-                          while($dados = mysqli_fetch_assoc($resultado)){
-                            $unidade = $dados['unidade_nome'];
-                            $id = $dados['unidade_id'];
-                            echo "<option value='$id'>$unidade</option>";
-                          } 
-                          
+                        $sql = "SELECT `unidade_id`, `unidade_nome` FROM `unidades` WHERE unidade_empresa_id = '$empresa'";
+                        $resultado = mysqli_query($conn, $sql);
+                        while ($dados = mysqli_fetch_assoc($resultado)) {
+                          $unidade = $dados['unidade_nome'];
+                          $id = $dados['unidade_id'];
+                          echo "<option value='$id'>$unidade</option>";
+                        }
+
                         ?>
                       </select>
                     </div>
-                    <br/>
+                    <br />
 
-                  <button type="submit" value="Cadastrar" class="btn btn-primary"> Cadastrar </button>
+                    <button type="submit" value="Cadastrar" class="btn btn-primary"> Cadastrar </button>
                   </form>
                 </div>
                 <div class="modal-footer">
@@ -313,14 +315,14 @@ include("verifica_login.php");
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <script src="assets/js/sb-admin-2.min.js"></script>
 
 </body>
 

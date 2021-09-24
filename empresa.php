@@ -3,8 +3,8 @@
     <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>G.Estoque</title>
-  <link rel="stylesheet" href="css/cadastro.css">
-  <link rel="icon" href="img/favico.png"/><a style="visibility: hidden;">;</a>
+  <link rel="stylesheet" href="assets/css/cadastro.css">
+  <link rel="icon" href="assets/img/favico.png"/><a style="visibility: hidden;">;</a>
 
     <!-- Adicionando Javascript -->
     <script type="text/javascript" >
